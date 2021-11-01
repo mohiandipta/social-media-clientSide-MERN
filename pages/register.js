@@ -1,5 +1,5 @@
-import React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -10,7 +10,15 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(fName, lName, email, password)
+        // console.log(fName, lName, email, password)
+        axios.post("http://localhost:8000/api/register", {
+            fName,
+            lName,
+            email,
+            password
+        })
+            .then((res) => { console.log(res) })
+            .catch((err) => { console.log(err) })
     }
 
     return (

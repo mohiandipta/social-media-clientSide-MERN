@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Nav = () => {
     return (
-        <nav className="nav bg-dark d-flex justify-content-center" style={{ height: "70px", alignContent: 'center', boxShadow: "0px 0px 10px black" }}>
+        <nav className="nav bg-dark d-flex justify-content-center" style={{ height: "70px", alignContent: 'center', boxShadow: "0px 0px 6px black" }}>
             <Link href="/home">
                 <a className="nav-link text-light">Home</a>
             </Link>
