@@ -12,7 +12,7 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [secret, setSecret] = useState("");
-    const [ok, setOk] = useState(true);
+    const [ok, setOk] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,7 +84,7 @@ const Register = () => {
             </form>
             <div className="row">
                 <div className="col">
-                    <Modal title="" visible={ok} onCancel={() => setOk(true)} footer={null}>
+                    <Modal title="" visible={ok} onCancel={() => setOk(false)} footer={null}>
                         <p>You have successfully registered!</p>
                         <Link href="/login">
                             <a className="btn btn-primary btn-sm" href="/">Login</a>

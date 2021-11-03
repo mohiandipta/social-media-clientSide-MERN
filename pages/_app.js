@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "../components/Nav";
 import Head from "next/head";
 import 'react-toastify/dist/ReactToastify.css';
+import "antd/dist/antd.css"
 import { ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, pageProps }) {
