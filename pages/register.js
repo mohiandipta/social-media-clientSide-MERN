@@ -11,7 +11,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(fName, lName, email, password)
+        // console.log(fName, lName, email, password, secret)
         axios.post("http://localhost:8000/api/register", {
             fName,
             lName,
