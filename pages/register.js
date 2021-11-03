@@ -18,13 +18,18 @@ const Register = () => {
         e.preventDefault();
         try {
             // console.log(fName, lName, email, password, secret)
-            const { data } = await axios.post("http://localhost:8000/api/register", {
+            const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API}/register`, {
                 fName,
                 lName,
                 email,
                 password,
                 secret
             })
+            setFname('')
+            setLname('')
+            setEmail('')
+            setPassword('')
+            setSecret('')
             setOk(data.ok)
         } catch (error) {
             toast.error(error.response.data)
@@ -80,7 +85,7 @@ const Register = () => {
                         onChange={(e) => setSecret(e.target.value)}
                         type="text" className="form-control" placeholder="Write your answer here" />
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button disabled={!fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">Submit</button>
             </form>
             <div className="row">
                 <div className="col">
