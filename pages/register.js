@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+    const notify = () => toast("Yeahoo! Successfully Registered!");
 
     const [fName, setFname] = useState("");
     const [lName, setLname] = useState("");
@@ -25,6 +29,9 @@ const Register = () => {
 
     return (
         <form onSubmit={handleSubmit} className="container">
+            <div>
+                <ToastContainer />
+            </div>
             <div class="mb-3">
                 <label for="exampleInputFirstName" class="form-label">First Name</label>
                 <input
@@ -71,7 +78,7 @@ const Register = () => {
                     onChange={(e) => setSecret(e.target.value)}
                     type="text" className="form-control" placeholder="Write your answer here" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" onClick={notify}>Submit</button>
         </form>
     );
 }
