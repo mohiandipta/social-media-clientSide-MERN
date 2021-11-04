@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
 import { Modal } from 'antd';
+import { SyncOutlined } from '@ant-design/icons';
 import Link from 'next/dist/client/link';
 
 const Register = () => {
@@ -13,6 +14,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [secret, setSecret] = useState("");
     const [ok, setOk] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,8 +33,11 @@ const Register = () => {
             setPassword('')
             setSecret('')
             setOk(data.ok)
-        } catch (error) {
+            setLoading(false)
+        }
+        catch (error) {
             toast.error(error.response.data)
+            setLoading(false)
         }
     }
 
@@ -46,6 +51,7 @@ const Register = () => {
                         onChange={e => setFname(e.target.value)}
                         type="name" class="form-control" id="exampleInputFirstName" aria-describedby="nameHelp" />
                 </div>
+
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Last Name</label>
                     <input
@@ -85,7 +91,7 @@ const Register = () => {
                         onChange={(e) => setSecret(e.target.value)}
                         type="text" className="form-control" placeholder="Write your answer here" />
                 </div>
-                <button disabled={!fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">Submit</button>
+                <button disabled={!fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">{loading ? <SyncOutlined spin className="py-1" /> : 'Submit'}</button>
             </form>
             <div className="row">
                 <div className="col">
