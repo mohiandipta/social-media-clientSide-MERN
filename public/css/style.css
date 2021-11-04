@@ -11,13 +11,9 @@ img{
 }
 form{
     margin-top: -70px;
-    padding-bottom: 30px;
     height: auto;
 }
 
-.container{
-    padding-left: 100px;
-}
 .bg-default-image{
     display: flex;
     margin-top: 20px;
