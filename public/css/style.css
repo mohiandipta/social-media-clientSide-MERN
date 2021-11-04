@@ -6,7 +6,24 @@ img{
     margin-right: auto;
     width: 100%;
 }
-
+.full{
+    height: auto;
+}
 form{
-    margin-top: 50px;
+    margin-top: -70px;
+    padding-bottom: 30px;
+    height: auto;
+}
+
+.container{
+    padding-left: 100px;
+}
+.bg-default-image{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 550px;
+    background-image: url("../images/door-reg.svg");
+    background-size: 25%;
+    height: 170px;
+    background-repeat: no-repeat;
 }

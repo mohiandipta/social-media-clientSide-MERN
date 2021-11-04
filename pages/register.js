@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { Modal } from 'antd';
 import { SyncOutlined } from '@ant-design/icons';
 import Link from 'next/dist/client/link';
+import bg_image from '../public/images/bg.png'
 
 const Register = () => {
 
@@ -42,7 +43,10 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className="full">
+            <div className="bg-default-image">
+
+            </div>
             <form onSubmit={handleSubmit} className="container">
                 <div class="mb-3">
                     <label for="exampleInputFirstName" class="form-label">First Name</label>
