@@ -1,0 +1,23 @@
+img{
+    display: block;
+    height: 995px;
+    margin-top: -200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+form{
+    margin-top: -70px;
+    height: auto;
+}
+
+.bg-default-image{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 550px;
+    background-image: url("../images/door-reg.svg");
+    background-size: 25%;
+    height: 170px;
+    background-repeat: no-repeat;
+}
