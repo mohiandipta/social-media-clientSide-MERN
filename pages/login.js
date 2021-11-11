@@ -1,15 +1,67 @@
+import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
+import axios from 'axios';
 import React from 'react';
+import { toast } from 'react-toastify';
+import Link from 'next/dist/client/link';
+import Authform from '../components/forms/AuthForm';
 
-const Login = () => {
+
+const Register = () => {
+
+    const router = useRouter()
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // console.log(fName, lName, email, password, secret)
+            const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API}/login`, {
+                email,
+                password,
+            })
+            router.push("/")
+            console.log(data)
+        }
+        catch (error) {
+            toast.error(error.response.data)
+            setLoading(false)
+        }
+    }
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col">
-                    <h1 className="display-1 text-center py-5">Login Page</h1>
+        <div className="full">
+            <div className="bg-login-default-image">
+
+            </div>
+
+            <div className="row py-4">
+                <div className="col-md-6 offset-md-3">
+                    <Authform
+                        handleSubmit={handleSubmit}
+                        email={email}
+                        setEmail={setEmail}
+                        password={password}
+                        setPassword={setPassword}
+                        loading={loading}
+                        page="login"
+                    />
+                    <div className="row mt-3">
+                        <div className="col">
+                            <p className="text-center font-weight-bold">Dont have an account? <Link href="/register">
+                                <a className="" href="/register">Register</a>
+                            </Link></p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
     );
 }
 
-export default Login;
+export default Register;

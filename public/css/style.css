@@ -16,10 +16,21 @@ form{
 
 .bg-default-image{
     display: flex;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: -20px;
     margin-left: 550px;
     background-image: url("../images/door-reg.svg");
     background-size: 25%;
-    height: 170px;
+    height: 350px;
+    background-repeat: no-repeat;
+}
+
+.bg-login-default-image {
+    display: flex;
+    margin-top: 40px;
+    margin-left: 550px;
+    background-image: url("../images/login.svg");
+    background-size: 25%;
+    height: 350px;
     background-repeat: no-repeat;
 }

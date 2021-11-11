@@ -63,6 +63,13 @@ const Register = () => {
                         setSecret={setSecret}
                         loading={loading}
                     />
+                    <div className="row mt-3">
+                        <div className="col">
+                            <p className="text-center font-weight-bold">Already have registered? <Link href="/register">
+                                <a className="" href="/register">Login</a>
+                            </Link></p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

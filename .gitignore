@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+node_module/
+.next/
+.next/*/cache/*
+*/webpack/*
+.next
+node_modules
+.env.local
+*.pack
+=======
+/node_modules
+.env.local
+.next
+>>>>>>> 9d1d79ec1cf79e0f5a2b111b03cee1a3dfd9fd9d

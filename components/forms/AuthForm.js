@@ -7,11 +7,12 @@ const Authform = ({
     email, setEmail,
     password, setPassword,
     secret, setSecret,
-    loading
+    loading,
+    page
 }) => {
     return (
         <form onSubmit={handleSubmit} className="container">
-            <div className="row">
+            {page !== 'login' && (<div div className="row">
                 <div class="col md-2">
                     <label for="exampleInputFirstName" class="form-label">First Name</label>
                     <input
@@ -27,15 +28,15 @@ const Authform = ({
                         type="name" class="form-control" id="exampleInputLastName" aria-describedby="lastNameHelp" />
                     <div id="name" class="form-text"></div>
                 </div>
-            </div>
-            <div className="row">
-                <div class="col mb-3">
+            </div>)}
+            <div className="col mb-3">
+                <div class="col">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                         type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" class="form-text"></div>
                 </div>
                 <div class="col mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -45,7 +46,7 @@ const Authform = ({
                         type="password" class="form-control" id="exampleInputPassword1" />
                 </div>
             </div>
-            <div class="mb-3 form-group">
+            {page !== 'login' && (<><div class="mb-3 form-group">
                 <small>
                     <label className="text-muted">Pick a question</label>
                 </small>
@@ -54,15 +55,16 @@ const Authform = ({
                     <option>What is your best friend name?</option>
                     <option>What city you were born?</option>
                 </select>
-            </div>
-            <div className="mb-3 form-group">
-                <input
-                    value={secret}
-                    onChange={(e) => setSecret(e.target.value)}
-                    type="text" className="form-control" placeholder="Write your answer here" />
-            </div>
-            <button disabled={!fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">{loading ? <SyncOutlined spin className="py-1" /> : 'Submit'}</button>
-        </form>
+            </div><div className="mb-3 form-group">
+                    <input
+                        value={secret}
+                        onChange={(e) => setSecret(e.target.value)}
+                        type="text" className="form-control" placeholder="Write your answer here" />
+                </div></>
+            )}
+            <button disabled={page === "login" ? !email || !password :
+                !fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">{loading ? <SyncOutlined spin className="py-1" /> : 'Submit'}</button>
+        </form >
     );
 }
 
