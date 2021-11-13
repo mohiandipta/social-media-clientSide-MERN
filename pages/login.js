@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
 import Link from 'next/dist/client/link';
 import Authform from '../components/forms/AuthForm';
+import { UserContext } from '../context';
 
 
 const Register = () => {
+    const [state, setstate] = useContext(UserContext);
 
     const router = useRouter()
 
@@ -23,8 +25,15 @@ const Register = () => {
                 email,
                 password,
             })
+            // update context
+            setstate({
+                user: data.user,
+                token: data.token
+            })
+            // save in local storage
+            window.localStorage.setItem('auth', JSON.stringify(data))
             router.push("/")
-            console.log(data)
+            // console.log(data)
         }
         catch (error) {
             toast.error(error.response.data)
