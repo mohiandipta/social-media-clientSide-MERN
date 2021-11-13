@@ -51,7 +51,7 @@ const Register = () => {
                     />
                     <div className="row mt-3">
                         <div className="col">
-                            <p className="text-center font-weight-bold">Dont have an account? <Link href="/register">
+                            <p className="text-center font-weight-bold">Don't have an account? <Link href="/register">
                                 <a className="" href="/register">Register</a>
                             </Link></p>
                         </div>

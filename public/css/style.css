@@ -34,3 +34,72 @@ form{
     height: 350px;
     background-repeat: no-repeat;
 }
+
+
+.about-banner{
+    height: 800px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(163deg, rgba(2, 0, 36, 1) 0%, rgba(0, 68, 139, 1) 0%, rgba(0, 199, 240, 1) 100%);
+}
+
+.about-text {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 100px;
+}
+
+.about-headline{
+    text-align: center;
+    justify-content: center;
+}
+
+.about-headline h1{
+    color: white;
+    padding-top: 80px;
+}
+
+.about-text h1{
+    margin-left: inherit;
+    justify-content: center;
+    color: white;
+}
+
+.about-text h3 {
+    margin-left: inherit;
+    justify-content: center;
+    color: white;
+}
+
+.about-text p {
+    font-size: 20px;
+    margin-left: inherit;
+    justify-content: center;
+    color: white;
+}
+
+.about-card-section{
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 800px;
+    background-image: url("../images/about.svg");
+}
+
+.about-card{
+    height: 500px;
+    width: 420px;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    /* position: absolute; */
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 8px;
+    -webkit-box-shadow: 20px 20px 22px rgba(0, 0, 0, 0.2);
+    box-shadow: 20px 20px 22px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins',
+    sans-serif;
+}

@@ -9,10 +9,10 @@ const Home = () => {
     return (
         <div className="">
             <div>
+                {JSON.stringify(state)}
                 <h1 className="display-1 text-center py-5">Home Page</h1>
             </div>
             <img src="/images/bg.png" alt="image" />
-            {JSON.stringify(state)}
         </div>
     );
 }
