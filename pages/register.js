@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import React from 'react';
 import { toast } from 'react-toastify';
 import { Modal } from 'antd';
 import Link from 'next/dist/client/link';
 import Authform from '../components/forms/AuthForm';
+import { UserContext } from '../context';
+import { useRouter } from 'next/dist/client/router';
 
 const Register = () => {
 
@@ -15,6 +17,10 @@ const Register = () => {
     const [secret, setSecret] = useState("");
     const [ok, setOk] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    const [state] = useContext(UserContext);
+
+    const router = useRouter()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,6 +46,9 @@ const Register = () => {
             setLoading(false)
         }
     }
+
+    // redirect to the home and preventing logged-in user to access register path
+    if (state && state.token) router.push("/")
 
     return (
         <div className="full">

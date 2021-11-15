@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import axios from 'axios';
 import React from 'react';
@@ -12,6 +12,10 @@ const Register = () => {
     const [state, setstate] = useContext(UserContext);
 
     const router = useRouter()
+
+    useEffect(() => {
+
+    }, []);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -40,6 +44,9 @@ const Register = () => {
             setLoading(false)
         }
     }
+
+    // redirect to the home and preventing logged-in user to access login path
+    if (state && state.token) router.push("/")
 
     return (
         <div className="full">

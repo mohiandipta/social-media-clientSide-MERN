@@ -13,7 +13,7 @@ const Nav = () => {
     useEffect(() => {
         process.browser && setCurrent(window.location.pathname)
     }, [process.browser && window.location.pathname]);
-    console.log("current =>", current)
+    // console.log("current =>", current)
 
     const logout = () => {
         // remove local storage data
