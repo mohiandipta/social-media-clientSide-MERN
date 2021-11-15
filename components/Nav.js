@@ -29,7 +29,13 @@ const Nav = () => {
 
             {/* conditional nav links */}
             {state !== null ? (
-                <a onClick={logout} className="nav-link text-dark" > Logout</a >
+                <>
+                    <Link href="/user/dashboard">
+                        <a className="nav-link text-dark">{state && state.user && state.user}</a>
+                    </Link>
+
+                    <a onClick={logout} className="nav-link text-dark" > Logout</a >
+                </>
             ) : (
                 <>
                     <Link href="/login">
