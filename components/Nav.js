@@ -27,16 +27,20 @@ const Nav = () => {
                 <a className="nav-link text-dark">About</a>
             </Link>
 
-            <Link href="/login">
-                <a className="nav-link text-dark">Login</a>
-            </Link>
+            {/* conditional nav links */}
+            {state !== null ? (
+                <a onClick={logout} className="nav-link text-dark" > Logout</a >
+            ) : (
+                <>
+                    <Link href="/login">
+                        <a className="nav-link text-dark">Login</a>
+                    </Link>
 
-            <Link href="/register">
-                <a className="nav-link text-dark">Register</a>
-            </Link>
-
-
-            <a onClick={logout} className="nav-link text-dark" > Logout</a >
+                    <Link href="/register">
+                        <a className="nav-link text-dark">Register</a>
+                    </Link>
+                </>
+            )}
         </nav >
     );
 }

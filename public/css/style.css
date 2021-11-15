@@ -37,14 +37,14 @@ form{
 
 
 .about-banner{
-    height: 800px;
+    height: 600px;
     background: rgb(2, 0, 36);
     background: linear-gradient(163deg, rgba(2, 0, 36, 1) 0%, rgba(0, 68, 139, 1) 0%, rgba(0, 199, 240, 1) 100%);
 }
 
 .about-text {
     position: absolute;
-    margin-top: 200px;
+    margin-top: 100px;
     margin-left: 100px;
 }
 
