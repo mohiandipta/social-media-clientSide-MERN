@@ -7,12 +7,10 @@ const Home = () => {
     const [state, setState] = useContext(UserContext)
 
     return (
-        <div className="">
-            <div>
+        <div className="home-bg">
+            <div className="home-json-data">
                 {JSON.stringify(state)}
-                <h1 className="display-1 text-center py-5">Home Page</h1>
             </div>
-            <img src="/images/bg.png" alt="image" />
         </div>
     );
 }

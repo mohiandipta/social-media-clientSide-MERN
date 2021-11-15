@@ -6,6 +6,20 @@ img{
     margin-right: auto;
     width: 100%;
 }
+
+.home-bg{
+    margin-top: -88px;
+    height: 1050px;
+    background-image: url("../images/bg.png");
+    background-size: cover;
+    color: white;
+}
+
+.home-json-data{
+    position: absolute;
+    margin-top: 200px;
+}
+
 .full{
     height: auto;
 }

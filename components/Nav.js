@@ -18,7 +18,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className="nav d-flex bg-white d-flex justify-content-center" style={{ height: "70px", alignContent: 'center', boxShadow: "0px 0px 7px #737373" }}>
+        <nav className="nav d-flex bg-white d-flex justify-content-center sticky-top" style={{ height: "70px", alignContent: 'center', boxShadow: "0px 0px 7px #737373" }}>
             <Link href="/">
                 <a className="nav-link text-dark">Home</a>
             </Link>
@@ -31,7 +31,7 @@ const Nav = () => {
             {state !== null ? (
                 <>
                     <Link href="/user/dashboard">
-                        <a className="nav-link text-dark">{state && state.user && state.user}</a>
+                        <a className="nav-link text-dark">[state && state.user && state.user]</a>
                     </Link>
 
                     <a onClick={logout} className="nav-link text-dark" > Logout</a >
