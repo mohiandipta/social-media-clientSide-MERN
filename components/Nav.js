@@ -41,7 +41,6 @@ const Nav = () => {
                     <Link href="/login">
                         <a className="nav-link text-dark">Login</a>
                     </Link>
-
                     <Link href="/register">
                         <a className="nav-link text-dark">Register</a>
                     </Link>
