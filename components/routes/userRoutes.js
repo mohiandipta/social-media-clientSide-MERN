@@ -1,20 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/dist/client/router";
 import { SyncOutlined } from "@ant-design/icons"
-import { Default } from "react-toastify/dist/utils";
+import { UserContext } from "../../context";
 
 const UserRouter = ({ children }) => {
     const [ok, setOk] = useState(false);
-    const route = UserRouter();
+    const route = useRouter();
+    const [state] = useContext(UserContext)
 
     useEffect(() => {
-        getCorrentUser()
-    }, []);
+        if (state && state.token) getCurrentUser()
+    }, [state && state.token]);
 
-    const getCorrentUser = async () => {
+    const getCurrentUser = async () => {
         try {
-            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/current-user`)
+            const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API}/current-user`, {
+                headers: {
+                    "Authorizatrion": `Bearer${state.token}`
+                }
+            })
             if (data.ok) {
                 setOk(true)
             }
@@ -23,7 +28,9 @@ const UserRouter = ({ children }) => {
         }
     }
 
-    return !ok ? (<SyncOutlined spin className="d-flex justify-content-center display-1 text-primary p-5" />) : ({ children })
+    return !ok ? (<SyncOutlined spin className="d-flex justify-content-center display-1 text-primary p-5" />) : (
+        <>{children}</>
+    )
 }
 
 export default UserRouter
