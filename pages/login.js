@@ -65,11 +65,19 @@ const Register = () => {
                         loading={loading}
                         page="login"
                     />
-                    <div className="row mt-3">
+                    <div className="row mt-4">
                         <div className="col">
                             <p className="text-center font-weight-bold">Don't have an account? <Link href="/register">
                                 <a className="" href="/register">Register</a>
                             </Link></p>
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col">
+                            <p className="text-center font-weight-bold">
+                                Forgot Password?{" "} <Link href="/forgot-password">
+                                    <a className="text-danger" href="/register">Forgot password</a>
+                                </Link></p>
                         </div>
                     </div>
                 </div>
