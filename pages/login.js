@@ -25,7 +25,7 @@ const Register = () => {
         e.preventDefault();
         try {
             // console.log(fName, lName, email, password, secret)
-            const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API}/login`, {
+            const { data } = await axios.post(`/login`, {
                 email,
                 password,
             })

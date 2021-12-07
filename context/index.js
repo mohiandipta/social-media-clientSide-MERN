@@ -15,6 +15,11 @@ const UserProvider = ({ children }) => {
         setState(JSON.parse(window.localStorage.getItem('auth')))
     }, []);
 
+    // axios config
+    const token = state && state.token ? state.token : "";
+    axios.defaults.baseURL = process.env.NEXT_PUBLIC_API
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
     // Add a response interceptor
     axios.interceptors.response.use(
         function (response) {
