@@ -4,16 +4,14 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import { Modal } from 'antd';
 import Link from 'next/dist/client/link';
-import ForgotPasswordForm from '../components/forms/AuthForm';
+import ForgotPasswordForm from '../components/forms/ForgotPasswordForm';
 import { UserContext } from '../context';
 import { useRouter } from 'next/dist/client/router';
 
 const ForgotPassword = () => {
 
-    const [fName, setFname] = useState("");
-    const [lName, setLname] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [newPassword, setNewPassword] = useState("");
     const [secret, setSecret] = useState("");
     const [ok, setOk] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -26,20 +24,17 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             // console.log(fName, lName, email, password, secret)
-            const { data } = await axios.post(`/register`, {
-                fName,
-                lName,
+            const { data } = await axios.post(`/forgot-password`, {
                 email,
-                password,
+                newPassword,
                 secret
             })
-            setFname('')
-            setLname('')
-            setEmail('')
-            setPassword('')
-            setSecret('')
-            setOk(data.ok)
-            setLoading(false)
+            console.log('data =>', data)
+            // setEmail('')
+            // setPassword('')
+            // setSecret('')
+            // setOk(data.ok)
+            // setLoading(false)
         }
         catch (error) {
             toast.error(error.response.data)
@@ -60,14 +55,10 @@ const ForgotPassword = () => {
                 <div className="col-md-6 offset-md-3">
                     <ForgotPasswordForm
                         handleSubmit={handleSubmit}
-                        fName={fName}
-                        setFname={setFname}
-                        lName={lName}
-                        setLname={setLname}
                         email={email}
                         setEmail={setEmail}
-                        password={password}
-                        setPassword={setPassword}
+                        newPassword={newPassword}
+                        setNewPassword={setNewPassword}
                         secret={secret}
                         setSecret={setSecret}
                         loading={loading}

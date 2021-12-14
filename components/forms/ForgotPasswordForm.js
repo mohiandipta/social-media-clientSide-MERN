@@ -2,51 +2,32 @@ import { SyncOutlined } from '@ant-design/icons';
 
 const ForgotPasswordForm = ({
     handleSubmit,
-    fName, setFname,
-    lName, setLname,
     email, setEmail,
-    password, setPassword,
+    newPassword, setNewPassword,
     secret, setSecret,
     loading,
     page
 }) => {
     return (
         <form onSubmit={handleSubmit} className="container">
-            {page !== 'login' && (<div div className="row">
-                <div class="col md-2">
-                    <label for="exampleInputFirstName" class="form-label">First Name</label>
-                    <input
-                        value={fName}
-                        onChange={e => setFname(e.target.value)}
-                        type="name" class="form-control" id="exampleInputFirstName" aria-describedby="nameHelp" />
-                </div>
-                <div class="col mb-2">
-                    <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                    <input
-                        value={lName}
-                        onChange={e => setLname(e.target.value)}
-                        type="name" class="form-control" id="exampleInputLastName" aria-describedby="lastNameHelp" />
-                    <div id="name" class="form-text"></div>
-                </div>
-            </div>)}
             <div className="col mb-3">
-                <div class="col">
+                <div className="col">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input
                         value={email}
                         onChange={e => setEmail(e.target.value)}
-                        type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    <div id="emailHelp" class="form-text"></div>
+                        type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <div id="emailHelp" className="form-text"></div>
                 </div>
                 <div class="col mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <label for="exampleInputPassword1" className="form-label">New Password</label>
                     <input
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        value={newPassword}
+                        onChange={e => setNewPassword(e.target.value)}
                         type="password" class="form-control" id="exampleInputPassword1" />
                 </div>
             </div>
-            {page !== 'login' && (<><div class="mb-3 form-group">
+            {page !== 'login' && (<><div className="mb-3 form-group">
                 <small>
                     <label className="text-muted">Pick a question</label>
                 </small>
@@ -62,8 +43,7 @@ const ForgotPasswordForm = ({
                         type="text" className="form-control" placeholder="Write your answer here" />
                 </div></>
             )}
-            <button disabled={page === "login" ? !email || !password :
-                !fName || !lName || !email || !password || !secret} type="submit" class="btn btn-primary col-12">{loading ? <SyncOutlined spin className="py-1" /> : 'Submit'}</button>
+            <button disabled={!email || !newPassword || !secret || loading} type="submit" class="btn btn-primary col-12">{loading ? <SyncOutlined spin className="py-1" /> : 'Submit'}</button>
         </form >
     );
 }
