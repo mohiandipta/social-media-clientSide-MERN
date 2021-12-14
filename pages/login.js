@@ -29,15 +29,21 @@ const Register = () => {
                 email,
                 password,
             })
-            // update context
-            setstate({
-                user: data.user,
-                token: data.token
-            })
-            // save in local storage
-            window.localStorage.setItem('auth', JSON.stringify(data))
-            router.push("/")
-            // console.log(data)
+
+            if (data.error) {
+                toast.error(data.error)
+                setLoading(false)
+            } else {
+                // update context
+                setstate({
+                    user: data.user,
+                    token: data.token
+                })
+                // save in local storage
+                window.localStorage.setItem('auth', JSON.stringify(data))
+                router.push("/")
+                // console.log(data)
+            }
         }
         catch (error) {
             toast.error(error.response.data)

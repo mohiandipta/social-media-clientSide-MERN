@@ -33,13 +33,19 @@ const Register = () => {
                 password,
                 secret
             })
-            setFname('')
-            setLname('')
-            setEmail('')
-            setPassword('')
-            setSecret('')
-            setOk(data.ok)
-            setLoading(false)
+
+            if (data.error) {
+                toast.error(data.error)
+            } else {
+                setFname('')
+                setLname('')
+                setEmail('')
+                setPassword('')
+                setSecret('')
+                setOk(data.ok)
+                setLoading(false)
+            }
+
         }
         catch (error) {
             toast.error(error.response.data)
